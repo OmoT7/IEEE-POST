@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './app_home.css'; // Import your CSS file
 
-function App() {
+function LinkSubmit() {
   const [linkUrl, setLinkUrl] = useState('');
   const [links, setLinks] = useState([]);
 
@@ -20,27 +20,16 @@ function App() {
 
   return (
     <div className="container">
-      <div className="middle">
-        <h1>Hi, _____</h1>
-      </div>
-      <section id="LinkPlacement">
-        <form id="link-form">
-          <label htmlFor="link-input">Enter a link:</label>
-          <input
-            type="url"
-            id="link-input"
-            name="link-input"
-            placeholder="https://example.com"
-            required
-            value={linkUrl}
-            onChange={handleLinkInput}
-          />
-          <button type="button" onClick={submitLink}>
-            Submit
-          </button>
-        </form>
-      </section>
-      <div id="link-display">
+      <input
+        type="text"
+        id="link-input"
+        value={linkUrl}
+        onChange={handleLinkInput}
+        placeholder="Enter link URL"
+      />
+      <button onClick={submitLink}>Submit Link</button>
+
+      <div id="link-display" className="link-display">
         {links.map((link, index) => (
           <div key={index} className="link-container">
             <a href={link} className="link">
@@ -53,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default LinkSubmit;

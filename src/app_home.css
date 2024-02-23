@@ -1,0 +1,67 @@
+.middle {
+    position: relative;
+    height: 200px;
+    width: 400px;
+    color: white;
+    text-align: center;
+}
+body 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /*  #202A25; */
+    background-color: #202A25;
+}
+#LinkPlacement{
+    color: white;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#link-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link-container {
+
+    width: 200px;
+    height: 50px;
+    border: 2px solid #719178; /* Colored border */
+    border-radius: 10px; /* Semi-rounded edges */
+    background-color: #84A98C; /* Background color */
+    margin-top: 10px; 
+    margin-bottom: 10px; /* Adjust the margin as needed */
+    padding: 10px;
+    text-align: center; /* Center-align the text within the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.link-container:hover {
+
+        box-shadow: 0 .5em .5em -.04em #9DBEBB;
+        transform: translateY(-.25em);
+        cursor: pointer;  
+}
+
+.link {
+
+    color: whitesmoke; /* Change "blue" to the desired color */
+    text-decoration: none;
+}
+
+label {
+    
+    border: 2px solid #719178; /* Colored border */
+    border-radius: 5px; /* Semi-rounded edges */
+    background-color: #84A98C; /* Background color */
+    margin-top: 10px; 
+    margin-bottom: 10px; /* Adjust the margin as needed */
+
+}
