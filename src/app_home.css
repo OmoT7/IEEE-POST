@@ -38,12 +38,18 @@ body
     text-decoration: none;
 }
 
-label {
-    
-    border: 2px solid #719178; /* Colored border */
-    border-radius: 5px; /* Semi-rounded edges */
-    background-color: #84A98C; /* Background color */
-    margin-top: 10px; 
-    margin-bottom: 10px; /* Adjust the margin as needed */
-
-}
+/* Add this CSS to hide the scrollbar in webkit-based browsers */
+  ::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar width */
+    background: transparent; /* Set background to transparent */
+  }
+  
+  /* Optional: You can also style the thumb and track if needed */
+  ::-webkit-scrollbar-thumb {
+    background: transparent; /* Set thumb color to transparent */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Set track color to transparent */
+  }
+  
