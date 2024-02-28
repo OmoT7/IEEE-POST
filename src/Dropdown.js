@@ -28,6 +28,7 @@ const TabGroup = ({ tabGroupName, links, handleLinkClick, handleCategoryExpand, 
 
   return (
     <div
+    // The transitions for the the box that give its is underlying box shadow 
       style={{
         border: '1px solid #ccc',
         padding: '10px',
@@ -60,10 +61,12 @@ const TabGroup = ({ tabGroupName, links, handleLinkClick, handleCategoryExpand, 
                 onClick={() => handleLinkClick(tabGroupName, link)}
                 style={{ cursor: 'pointer', margin: '5px 0' }}
               >
+                                                                        {/* Link style */}
                 <a href={link} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#588157', borderRadius: '5px', color: 'white' }}>
                   {link}
                 </a>
               </div>
+                                                                          {/* This is the style */}
               <button onClick={() => handleLinkDelete(tabGroupName, link)} style={{ marginLeft: '10px', backgroundColor: '#db504a', color: 'white', border: 'none', cursor: 'pointer' }}>
                 Delete
               </button>
@@ -88,7 +91,6 @@ const TabGroup = ({ tabGroupName, links, handleLinkClick, handleCategoryExpand, 
   );
 };
 
-// Rest of your code remains unchanged...
 
 const Dropdown = () => {
   const [tabGroups, setTabGroups] = useState([]);
@@ -150,6 +152,7 @@ const Dropdown = () => {
   return (
     <div style={{ display: 'flex', height: '100vh', overflowX: 'hidden' }}>
       {/* This is the Dropbox */}
+                                {/* This is the style for the drop box */}
       <div className = "DropBox" style={{ overflowY: 'auto', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', WebkitOverflowScrolling: 'touch' }}>
         {tabGroups.map((tabGroup, index) => (
           <TabGroup
@@ -168,12 +171,14 @@ const Dropdown = () => {
           <label style={{}}>
             New Tab Group Name:
             <input
+
               style={{marginLeft: '10px', marginRight: '10px', borderRadius: '10px', boxShadow: '#588157 0px 5px 15px'}}
               type="text"
               value={newTabGroupName}
               onChange={(e) => setNewTabGroupName(e.target.value)}
             />
           </label>
+                                {/*style for button the button for creating a category*/}
           <button type="submit" style={{ backgroundColor: '#588157', color: 'white', border: 'none', cursor: 'pointer', width:'100px', height:'30px', borderRadius:'20px'}}>
             Create Tab Group
           </button>
