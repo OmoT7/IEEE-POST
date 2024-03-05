@@ -168,7 +168,7 @@ const Dropdown = () => {
     <div >
       {/* This is the Dropbox */}
                                 {/* This is the style for the drop box */}
-    <header className="settings-header" style={{ backgroundColor: backgroundColor }}>
+    <header className="settings-header" style={{ backgroundColor: backgroundColor , overflowY: 'auto', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', WebkitOverflowScrolling: 'touch' }}>
       <div className = "DropBox" style={{ overflowY: 'auto', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', WebkitOverflowScrolling: 'touch' }}>
         {tabGroups.map((tabGroup, index) => (
           <TabGroup
@@ -202,7 +202,7 @@ const Dropdown = () => {
       </div>
       {(!showBox || userName) && (
               <>
-                {!showBox && <p>Welcome{userName ? `, ${userName}` : '!'}</p>}
+                {!showBox && <p classname = "welcome">Welcome{userName ? `, ${userName}` : '!'}</p>}
                 <button className="settings-button" onClick={handleButtonClick}>
                   Settings
                 </button>
