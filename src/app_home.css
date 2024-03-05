@@ -5,15 +5,16 @@
     color: white;
     text-align: center;
 }
-body 
-{
+body {
 
     /*  #202A25; */
     background-color: #202A25;
 }
-#LinkPlacement{
+
+#LinkPlacement {
     color: white;
 }
+
 .link-container {
 
     width: 200px;
@@ -52,4 +53,45 @@ body
   ::-webkit-scrollbar-track {
     background: transparent; /* Set track color to transparent */
   }
-  
+
+.settings {
+  text-align: center;
+}
+
+.settings-box {
+  background-color: rgba(40, 44, 52, 0.8); /* Adjust the color and opacity as needed */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+}
+
+.settings-header {
+  /*background-color: #282c34;*/
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.settings-link {
+  color: #61dafb;
+}
+
+.settings-button {
+  position: absolute;
+  top: 10px; /* Adjust the top value as needed */
+  right: 10px; /* Adjust the right value as needed */
+  padding: 10px;
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
