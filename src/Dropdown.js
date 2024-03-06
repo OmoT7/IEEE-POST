@@ -184,7 +184,7 @@ const Dropdown = () => {
                   Settings
                 </button>
 
-      <div className = "DropBox" style={{ overflowY: 'auto', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', WebkitOverflowScrolling: 'touch' }}>
+      <div className = "DropBox" style={{ overflowY: 'auto', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', WebkitOverflowScrolling: 'touch', position: 'absolute' }}>
         {tabGroups.map((tabGroup, index) => (
           <TabGroup
             key={index}
