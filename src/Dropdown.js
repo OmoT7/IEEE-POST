@@ -154,7 +154,7 @@ const Dropdown = () => {
   // settings button 
   const [showBox, setShowBox] = useState(false);
   const [userName, setUserName] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState('#282c34') // default background color #282c34
+  const [backgroundColorPage, setBackgroundColorPage] = useState('#282c34') // default background color #282c34
 
   const handleButtonClick = () => {
     setShowBox(true);
@@ -168,13 +168,12 @@ const Dropdown = () => {
 
   return (
     <div>
-      <header className="settings-header">
+      <header className="settings-header" style={{ backgroundColor: backgroundColorPage }}>
 
         {/* "welcome, name!" text */}
         <div className = "welcome">
           {(!showBox || userName) && (<> {!showBox && <p>Welcome{userName ? `, ${userName}` : '!'}</p>} </>)}
         </div>
-
 
         <button className="settings-button" onClick={handleButtonClick}>
           Settings
@@ -199,14 +198,14 @@ const Dropdown = () => {
                 <label>Background color:</label>
                 <input 
                   type="text" 
-                  value={backgroundColor}
-                  onChange={(e) => setBackgroundColor(e.target.value)}
+                  value={backgroundColorPage}
+                  onChange={(e) => setBackgroundColorPage(e.target.value)}
                 />
 
                 <br />
 
                 {/* submit button */}
-                <button type="submit" className = "submit-button" >Submit</button>
+                <button type="submit" className = "submit-button" > Submit </button>
                 
             </form>
           </div>
