@@ -8,7 +8,7 @@
 body {
 
     /*  #202A25; */
-    background-color: #202A25;
+    background-color: #282c34;
 }
 
 #LinkPlacement {
@@ -97,7 +97,12 @@ body {
 }
 
 .welcome {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  /*min-height: calc(100vh - 40px); Adjusted to leave space for the centered content */
+  right: 50%;
+  top: 10px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
 }
