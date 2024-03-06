@@ -81,7 +81,7 @@ const TabGroup = ({ tabGroupName, links, handleLinkClick, handleCategoryExpand, 
                 onChange={(e) => setInputText(e.target.value)}
               />
             </label>
-            <button type="submit" style={{ backgroundColor: '#588157', color: 'white', border: 'none', cursor: 'pointer', height:'20px', borderRadius: '5px' }}>
+            <button type="submit" className = "submit-button">
               Submit
             </button>
           </form>
@@ -93,6 +93,8 @@ const TabGroup = ({ tabGroupName, links, handleLinkClick, handleCategoryExpand, 
 
 
 const Dropdown = () => {
+
+  // tab group
   const [tabGroups, setTabGroups] = useState([]);
   const [newTabGroupName, setNewTabGroupName] = useState('');
 
@@ -149,10 +151,10 @@ const Dropdown = () => {
     }
   };
 
-  // this is settings stuff
+  // settings button 
   const [showBox, setShowBox] = useState(false);
   const [userName, setUserName] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState('#282c34')
+  const [backgroundColor, setBackgroundColor] = useState('#282c34') // default background color #282c34
 
   const handleButtonClick = () => {
     setShowBox(true);
@@ -165,111 +167,85 @@ const Dropdown = () => {
 
 
   return (
-    <div >
-      {/* This is the Dropbox */}
-                                {/* This is the style for the drop box */}
+    <div>
+      <header className="settings-header">
+
+        {/* "welcome, name!" text */}
+        <div className = "welcome">
+          {(!showBox || userName) && (<> {!showBox && <p>Welcome{userName ? `, ${userName}` : '!'}</p>} </>)}
+        </div>
 
 
-    <header className="settings-header" style={{ backgroundColor: backgroundColor , overflowY: 'auto', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', WebkitOverflowScrolling: 'touch' }}>
+        <button className="settings-button" onClick={handleButtonClick}>
+          Settings
+        </button>
 
-    <div className = "welcome">
-    {(!showBox || userName) && (
-              <>
-                {!showBox && <p>Welcome{userName ? `, ${userName}` : '!'}</p>}
-              </>
-            )}
-    </div>
+        {/* settings box pop-up */}
+        {showBox && (
+          <div className="settings-box">
+            <form onSubmit={handleNameSubmit}>
 
-    <button className="settings-button" onClick={handleButtonClick}>
-                  Settings
-                </button>
+                {/* name field */}
+                <label>Enter your name:</label>
+                <input
+                    type="text"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                />
 
-      <div className = "DropBox" style={{ overflowY: 'auto', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', WebkitOverflowScrolling: 'touch', position: 'absolute' }}>
-        {tabGroups.map((tabGroup, index) => (
-          <TabGroup
-            key={index}
-            tabGroupName={tabGroup.tabGroupName}
-            links={tabGroup.links}
-            handleLinkClick={handleLinkClick}
-            handleCategoryExpand={handleCategoryExpand}
-            handleLinkSubmit={handleLinkSubmit}
-            handleLinkDelete={handleLinkDelete}
-          />
-        ))}
-      </div>
-      <div style={{ margin: 'auto', textAlign: 'center', color: 'white', display: 'flex', alignItems: 'center' }}>
-        <form onSubmit={handleSubmitTabGroup} style={{ display: 'inline-block' }}>
-          <label style={{}}>
-            New Tab Group Name:
-            <input
+                <br />
 
-              style={{marginLeft: '10px', marginRight: '10px', borderRadius: '10px', boxShadow: '#588157 0px 5px 15px'}}
-              type="text"
-              value={newTabGroupName}
-              onChange={(e) => setNewTabGroupName(e.target.value)}
+                {/* background color field */}
+                <label>Background color:</label>
+                <input 
+                  type="text" 
+                  value={backgroundColor}
+                  onChange={(e) => setBackgroundColor(e.target.value)}
+                />
+
+                <br />
+
+                {/* submit button */}
+                <button type="submit" className = "submit-button" >Submit</button>
+                
+            </form>
+          </div>
+        )}      
+
+        {/* dropbox style stuff */}
+        <div className = "DropBox" style={{ overflowY: 'auto', maxHeight: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', WebkitOverflowScrolling: 'touch', position: 'absolute' }}>
+          {tabGroups.map((tabGroup, index) => (
+            <TabGroup
+              key={index}
+              tabGroupName={tabGroup.tabGroupName}
+              links={tabGroup.links}
+              handleLinkClick={handleLinkClick}
+              handleCategoryExpand={handleCategoryExpand}
+              handleLinkSubmit={handleLinkSubmit}
+              handleLinkDelete={handleLinkDelete}
             />
-          </label>
-                                {/*style for button the button for creating a category*/}
-          <button type="submit" style={{ backgroundColor: '#588157', color: 'white', border: 'none', cursor: 'pointer', width:'100px', height:'30px', borderRadius:'20px'}}>
-            Create Tab Group
-          </button>
-        </form>
-      </div>
+          ))}
+        </div>
 
-            {showBox && (
-              <div className="settings-box">
-                <form onSubmit={handleNameSubmit}>
-                  <label>Enter your name:</label>
-                  <input
-                      type="text"
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
-                  />
-                  <br />
-                  <label>Background color:</label>
-                  <input 
-                    type="text" 
-                    value={backgroundColor}
-                    onChange={(e) => setBackgroundColor(e.target.value)}
-                  />
-                  <br />
-                  <button type="submit">Submit</button>
-                </form>
-              </div>
-            )}      
+        {/* create new tab group */}
+        <div style={{ margin: 'auto', textAlign: 'center', color: 'white', display: 'flex', alignItems: 'center' }}>
+          <form onSubmit={handleSubmitTabGroup} style={{ display: 'inline-block' }}>
+            <label style={{}}>
+              New Tab Group Name:
+              <input
+                style={{marginLeft: '10px', marginRight: '10px', borderRadius: '10px', boxShadow: '#588157 0px 5px 15px'}}
+                type="text"
+                value={newTabGroupName}
+                onChange={(e) => setNewTabGroupName(e.target.value)}
+              />
+            </label>
+            <button type="submit" className= "create-button" >
+              Create Tab Group
+            </button>
+          </form>
+        </div>
+
       </header>
-
-      {/* <header className="settings-header" style={{ backgroundColor: backgroundColor }}>
-            {(!showBox || userName) && (
-              <>
-                {!showBox && <p>Welcome{userName ? `, ${userName}` : '!'}</p>}
-                <button className="settings-button" onClick={handleButtonClick}>
-                  Settings
-                </button>
-              </>
-            )}
-            {showBox && (
-              <div className="settings-box">
-                <form onSubmit={handleNameSubmit}>
-                  <label>Enter your name:</label>
-                  <input
-                      type="text"
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
-                  />
-                  <br />
-                  <label>Background color:</label>
-                  <input 
-                    type="text" 
-                    value={backgroundColor}
-                    onChange={(e) => setBackgroundColor(e.target.value)}
-                  />
-                  <br />
-                  <button type="submit">Submit</button>
-                </form>
-              </div>
-            )}
-          </header> */}
     </div>
   );
 };
