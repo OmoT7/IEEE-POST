@@ -9,7 +9,7 @@
 body {
 
     /*  #202A25; */
-    background-color: #282c34;
+    background-color: #836EAA;
 }
 
 #LinkPlacement {
@@ -22,14 +22,14 @@ body {
     height: 50px;
     border: 2px solid #719178; /* Colored border */
     border-radius: 10px; /* Semi-rounded edges */
-    background-color: #84A98C; /* Background color */
+    background-color: #E4E0EE; /* Background color */
     margin-top: 10px; 
     margin-bottom: 10px; /* Adjust the margin as needed */
     padding: 10px;
 }
 .link-container:hover {
 
-        box-shadow: 0 .5em .5em -.04em #9DBEBB;
+        box-shadow: 0 .5em .5em -.04em #4E2A84;
         transform: translateY(-.25em);
         cursor: pointer;  
 }
@@ -98,31 +98,37 @@ body {
   top: 10px; /* Adjust the top value as needed */
   right: 10px; /* Adjust the right value as needed */
   padding: 10px;
-  background-color: #588157;
-  color: white;
+  /* background-image: url"purple_gear_final.png"; */
+  /* color: white; */
+  background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
 .welcome {
   /*min-height: calc(100vh - 40px); Adjusted to leave space for the centered content */
-  right: 50%;
-  top: 10px;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  /* justify-content: center; Center content vertically */
+  /* align-items: center; Center content horizontally */
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  font-family: cursive;
 }
 
 .create-button {
-  background-color: #588157;
+  background-color: #836EAA;
+  border: solid #4E2A84 5px; 
+  font-family: cursive;
   color: white;
-  border: none;
-  cursor: pointer;
-  width: 100px;
-  height: 30px;
-  border-radius: 20px;
+  width: 150px;
+  height: 45px;
+  margin-bottom: 20px;
+  transition: all .25s;
+}
+
+.create-button:hover{
+
+  transform: translateY(-10px)
 }
 
 .submit-button {
@@ -132,4 +138,30 @@ body {
   cursor: pointer;
   height: 20px;
   border-radius: 5px;
+  margin: auto;
 }
+  .textInput {
+    width: 80px; 
+    height: 40px;
+    transition: width 0.5s ease-in-out;
+    box-shadow: #4E2A84 0px 5px 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .textInput:focus {
+    width: 100%;
+  }
+  .UI {
+    margin: auto;
+    margin-top: 100px; 
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4E0EE;
+    border: solid #4E2A84 10px; 
+    border-radius: 10px;
+    padding: 20px;
+
+  }

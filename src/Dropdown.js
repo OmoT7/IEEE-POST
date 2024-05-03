@@ -30,15 +30,16 @@ const TabGroup = ({ tabGroupName, links, handleLinkClick, handleCategoryExpand, 
     <div
     // The transitions for the the box that give its is underlying box shadow 
       style={{
-        border: '1px solid #ccc',
+        border: '10px solid #4E2A84',
         padding: '10px',
         marginBottom: '10px',
         marginTop: '10px',
         textAlign: 'left',
-        backgroundColor: '#3a5a40',
+        backgroundColor: '#E4E0EE',
+        borderRadius: '10px',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Adding a transition effect to transform and box-shadow properties
         transform: expanded ? 'translateY(-5px)' : 'translateY(0)', // Applying a translateY transformation on hover
-        boxShadow: expanded ? '0px 5px 15px #9DBEBB' : 'none', // Applying a box shadow on hover
+        boxShadow: expanded ? '0px 5px 15px #4E2A84' : 'none', // Applying a box shadow on hover
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -47,7 +48,7 @@ const TabGroup = ({ tabGroupName, links, handleLinkClick, handleCategoryExpand, 
         style={{
           cursor: 'pointer',
           fontWeight: 'bold',
-          color: 'white',
+          color: '#4E2A84',
         }}
         onClick={toggleExpand}
       >
@@ -73,7 +74,7 @@ const TabGroup = ({ tabGroupName, links, handleLinkClick, handleCategoryExpand, 
             </div>
           ))}
           <form onSubmit={handleSubmit}>
-            <label style={{color: 'white'}}>
+            <label style={{color: '#4E2A84'}}>
               Add Link:
               <input style={{margin:'10px'}}
                 type="text"
@@ -154,7 +155,7 @@ const Dropdown = () => {
   // settings button 
   const [showBox, setShowBox] = useState(false);
   const [userName, setUserName] = useState('');
-  const [backgroundColorPage, setBackgroundColorPage] = useState('#282c34') // default background color #282c34
+  const [backgroundColorPage, setBackgroundColorPage] = useState('#836EAA') // default background color #836EAA
 
   const handleButtonClick = () => {
     setShowBox(true);
@@ -176,7 +177,7 @@ const Dropdown = () => {
         </div>
 
         <button className="settings-button" onClick={handleButtonClick}>
-          Settings
+          <img src="purple_gear_final.png" style={{height: "50px", width: "50px"}}/>
         </button>
 
         {/* settings box pop-up */}
@@ -227,20 +228,21 @@ const Dropdown = () => {
         </div>
 
         {/* create new tab group */}
-        <div style={{ margin: 'auto', textAlign: 'center', color: 'white', display: 'flex', alignItems: 'center' }}>
-          <form onSubmit={handleSubmitTabGroup} style={{ display: 'inline-block' }}>
-            <label style={{}}>
+        <div 
+        className='UI'>
+          <form onSubmit={handleSubmitTabGroup} style={{ display: 'flex', flexDirection: "column", alignItems: 'center' }}>
+            <label style={{marginBottom: '10px', color: '#5B3B8C', fontSize: "30px", fontFamily: 'cursive'}}>
               New Tab Group Name:
-              <input
-                style={{marginLeft: '10px', marginRight: '10px', borderRadius: '10px', boxShadow: '#588157 0px 5px 15px'}}
+            </label>
+            <input
                 type="text"
+                className='textInput'
                 value={newTabGroupName}
                 onChange={(e) => setNewTabGroupName(e.target.value)}
               />
-            </label>
             <button type="submit" className= "create-button" >
               Create Tab Group
-            </button>
+            </button> 
           </form>
         </div>
 
